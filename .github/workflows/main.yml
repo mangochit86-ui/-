@@ -6,15 +6,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v5
         with:
           distribution: temurin
-          java-version: 21
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
+          java-version: 25
+      - name: Find project folder
+        run: |
+          GRADLEW=$(find . -name gradlew -not -path "./.git/*" | head -n 1)
+          echo "Found: $GRADLEW"
+          echo "PROJECT_DIR=$(dirname "$GRADLEW")" >> "$GITHUB_ENV"
       - name: Build
-        run: ./gradlew build
+        working-directory: ${{ env.PROJECT_DIR }}
+        run: |
+          chmod +x ./gradlew
+          ./gradlew build
       - uses: actions/upload-artifact@v4
         with:
           name: blackhole-mod
-          path: build/libs/
+          path: ${{ env.PROJECT_DIR }}/build/libs/
