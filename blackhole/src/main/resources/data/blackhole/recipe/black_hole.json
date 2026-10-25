@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "FFF",
+    "F F",
+    "FFF"
+  ],
+  "key": {
+    "F": "blackhole:black_hole_fragment"
+  },
+  "result": {
+    "id": "blackhole:black_hole",
+    "count": 1
+  }
+}

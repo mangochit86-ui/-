@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "blackhole",
+  "version": "${version}",
+  "name": "Black Hole",
+  "description": "A black hole item with an animated 3D model.",
+  "authors": [],
+  "license": "CC0-1.0",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.example.blackhole.BlackHoleMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
